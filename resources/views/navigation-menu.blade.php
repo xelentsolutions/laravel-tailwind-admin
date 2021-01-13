@@ -103,6 +103,12 @@
                                     </x-jet-dropdown-link>
                                     @endif
 
+                                    @can('user_access')
+                                            <x-jet-dropdown-link href="{{ route('users.index') }}" :active="request()->routeIs('users.*')">
+                                                Users
+                                            </x-jet-dropdown-link>
+
+                                    @endcan
                                     <div class="border-t border-gray-100"></div>
 
                                     <!-- Team Management -->

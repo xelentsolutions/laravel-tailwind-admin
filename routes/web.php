@@ -20,4 +20,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         return view('dashboard');
     })->name('dashboard');
 
+    Route::resource('users', \App\Http\Controllers\UsersController::class);
+
 });
