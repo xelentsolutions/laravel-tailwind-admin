@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\SettingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,5 +22,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     })->name('dashboard');
 
     Route::resource('users', \App\Http\Controllers\UsersController::class);
+
+    Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
+    Route::post('/settings', [SettingController::class, 'update'])->name('settings.update');
+
 
 });

@@ -104,10 +104,13 @@
                                     @endif
 
                                     @can('user_access')
-                                            <x-jet-dropdown-link href="{{ route('users.index') }}" :active="request()->routeIs('users.*')">
-                                                Users
-                                            </x-jet-dropdown-link>
+                                        <x-jet-dropdown-link href="{{ route('users.index') }}" :active="request()->routeIs('users.*')">
+                                            Users
+                                        </x-jet-dropdown-link>
 
+                                        <x-jet-dropdown-link href="{{ route('settings.index') }}" :active="request()->routeIs('settings.*')">
+                                            Settings
+                                        </x-jet-dropdown-link>
                                     @endcan
                                     <div class="border-t border-gray-100"></div>
 
