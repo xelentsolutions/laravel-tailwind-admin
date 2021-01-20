@@ -27,6 +27,7 @@ class SettingController extends BaseController
      */
     public function update(Request $request)
     {
+
         if ($request->has('site_logo') && ($request->file('site_logo') instanceof UploadedFile)) {
 
             if (config('settings.site_logo') != null) {

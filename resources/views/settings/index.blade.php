@@ -3,16 +3,15 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ $pageTitle }}
         </h2>
+        @include('partials.flash')
     </x-slot>
-
-    @include('partials.flash')
 
     <div class="flex flex-wrap" id="tabs-id">
         <div class="w-full">
             <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
                 <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
                     <a
-                        class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-white bg-blue-600"
+                        class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-white bg-blue-600 cursor-pointer"
                         onclick="changeAtiveTab(event,'tab-general')"
                     >
                         General
@@ -20,7 +19,7 @@
                 </li>
                 <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
                     <a
-                        class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-blue-600 bg-white"
+                        class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-blue-600 bg-white cursor-pointer"
                         onclick="changeAtiveTab(event,'tab-logo')"
                     >
                         Site Logo
@@ -28,7 +27,7 @@
                 </li>
                 <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
                     <a
-                        class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-blue-600 bg-white"
+                        class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-blue-600 bg-white cursor-pointer"
                         onclick="changeAtiveTab(event,'tab-footer')"
                     >
                         Footer &amp; SEO
@@ -36,7 +35,7 @@
                 </li>
                 <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
                     <a
-                        class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-blue-600 bg-white"
+                        class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-blue-600 bg-white cursor-pointer"
                         onclick="changeAtiveTab(event,'tab-social')"
                     >
                         Social Links
@@ -44,7 +43,7 @@
                 </li>
                 <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
                     <a
-                        class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-blue-600 bg-white"
+                        class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-blue-600 bg-white cursor-pointer"
                         onclick="changeAtiveTab(event,'tab-analytics')"
                     >
                         Analytics
@@ -52,7 +51,7 @@
                 </li>
                 <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
                     <a
-                        class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-blue-600 bg-white"
+                        class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-blue-600 bg-white cursor-pointer"
                         onclick="changeAtiveTab(event,'tab-payments')"
                     >
                         Payments
