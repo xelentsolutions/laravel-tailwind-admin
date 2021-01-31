@@ -12,7 +12,7 @@ class PurchaseDetail extends Model
     protected $table = 'purchase_details';
 
     protected $fillable = [
-        'id', 'po_id', 'product_id', 'qty', 'rate', 'amount'
+        'id', 'po_id', 'product_id', 'qty', 'rate', 'amount', 'notes'
     ];
 
     protected $casts = [
