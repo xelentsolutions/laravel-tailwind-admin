@@ -27,4 +27,12 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::post('/settings', [SettingController::class, 'update'])->name('settings.update');
 
 
+    Route::group(['prefix'  =>   'cities'], function () {
+        Route::get('/', 'CityController@index')->name('cities.index');
+        Route::get('/create', 'CityController@create')->name('cities.create');
+        Route::post('/store', 'CityController@store')->name('cities.store');
+        Route::get('/{id}/edit', 'CityController@edit')->name('cities.edit');
+        Route::post('/update', 'CityController@update')->name('cities.update');
+        Route::get('/{id}/delete', 'CityController@delete')->name('cities.delete');
+    });
 });
