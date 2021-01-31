@@ -36,37 +36,41 @@
 
                     <div class="col-span-6 sm:col-span-2">
                         <label
-                            for="about"
+                            for="seo_meta_title"
                             class="block text-sm font-medium text-gray-700"
                         >
                             SEO Meta Title
                         </label>
                         <div class="mt-1">
                             <textarea
-                                id="about"
-                                name="about"
+                                id="seo_meta_title"
+                                name="seo_meta_title"
                                 rows="3"
                                 class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                                placeholder="Copyright &copy; 2021"
-                            ></textarea>
+                                placeholder="SEO Meta Title"
+                            >{{
+                                    config("settings.seo_meta_title")
+                                }}</textarea>
                         </div>
                     </div>
 
                     <div class="col-span-6 sm:col-span-2">
                         <label
-                            for="about"
+                            for="seo_meta_description"
                             class="block text-sm font-medium text-gray-700"
                         >
                             SEO Meta Description
                         </label>
                         <div class="mt-1">
                             <textarea
-                                id="about"
-                                name="about"
+                                id="seo_meta_description"
+                                name="seo_meta_description"
                                 rows="3"
                                 class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                                placeholder="Copyright &copy; 2021"
-                            ></textarea>
+                                placeholder="SEO Meta Description"
+                            >{{
+                                    config("settings.seo_meta_description")
+                                }}</textarea>
                         </div>
                     </div>
                 </div>

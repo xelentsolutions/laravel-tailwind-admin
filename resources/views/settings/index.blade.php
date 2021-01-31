@@ -76,28 +76,10 @@
                             <p>@include('settings.includes.social')</p>
                         </div>
                         <div class="hidden" id="tab-analytics">
-                            <p>
-                                Analytics Efficiently unleash cross-media
-                                information without cross-media value. Quickly
-                                maximize timely deliverables for real-time
-                                schemas.
-                                <br />
-                                <br />
-                                Dramatically maintain clicks-and-mortar
-                                solutions without functional solutions.
-                            </p>
+                        <p>@include('settings.includes.analytics')</p>
                         </div>
                         <div class="hidden" id="tab-payments">
-                            <p>
-                                Payment Efficiently unleash cross-media
-                                information without cross-media value. Quickly
-                                maximize timely deliverables for real-time
-                                schemas.
-                                <br />
-                                <br />
-                                Dramatically maintain clicks-and-mortar
-                                solutions without functional solutions.
-                            </p>
+                        <p>@include('settings.includes.payments')</p>
                         </div>
                     </div>
                 </div>
