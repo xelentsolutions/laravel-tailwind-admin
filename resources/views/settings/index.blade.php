@@ -11,7 +11,7 @@
             <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
                 <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
                     <a
-                        class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-white bg-blue-600 cursor-pointer"
+                        class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-white bg-indigo-600"
                         onclick="changeAtiveTab(event,'tab-general')"
                     >
                         General
@@ -19,7 +19,7 @@
                 </li>
                 <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
                     <a
-                        class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-blue-600 bg-white cursor-pointer"
+                        class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-indigo-600 bg-white"
                         onclick="changeAtiveTab(event,'tab-logo')"
                     >
                         Site Logo
@@ -27,15 +27,15 @@
                 </li>
                 <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
                     <a
-                        class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-blue-600 bg-white cursor-pointer"
+                        class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-indigo-600 bg-white"
                         onclick="changeAtiveTab(event,'tab-footer')"
                     >
-                        Footer &amp; SEO
+                        Footer & SEO
                     </a>
                 </li>
                 <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
                     <a
-                        class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-blue-600 bg-white cursor-pointer"
+                        class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-indigo-600 bg-white"
                         onclick="changeAtiveTab(event,'tab-social')"
                     >
                         Social Links
@@ -43,7 +43,7 @@
                 </li>
                 <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
                     <a
-                        class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-blue-600 bg-white cursor-pointer"
+                        class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-indigo-600 bg-white"
                         onclick="changeAtiveTab(event,'tab-analytics')"
                     >
                         Analytics
@@ -51,7 +51,7 @@
                 </li>
                 <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
                     <a
-                        class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-blue-600 bg-white cursor-pointer"
+                        class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-indigo-600 bg-white"
                         onclick="changeAtiveTab(event,'tab-payments')"
                     >
                         Payments
@@ -70,16 +70,34 @@
                             <p>@include('settings.includes.logo')</p>
                         </div>
                         <div class="hidden" id="tab-footer">
-                            <p>@include('settings.includes.footer_seo')</p>
+                            <p>@include('settings.includes.footer')</p>
                         </div>
                         <div class="hidden" id="tab-social">
-                            <p>@include('settings.includes.social_links')</p>
+                            <p>@include('settings.includes.social')</p>
                         </div>
                         <div class="hidden" id="tab-analytics">
-                            <p>@include('settings.includes.analytics')</p>
+                            <p>
+                                Analytics Efficiently unleash cross-media
+                                information without cross-media value. Quickly
+                                maximize timely deliverables for real-time
+                                schemas.
+                                <br />
+                                <br />
+                                Dramatically maintain clicks-and-mortar
+                                solutions without functional solutions.
+                            </p>
                         </div>
                         <div class="hidden" id="tab-payments">
-                            <p>@include('settings.includes.payments')</p>
+                            <p>
+                                Payment Efficiently unleash cross-media
+                                information without cross-media value. Quickly
+                                maximize timely deliverables for real-time
+                                schemas.
+                                <br />
+                                <br />
+                                Dramatically maintain clicks-and-mortar
+                                solutions without functional solutions.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -99,16 +117,16 @@
                 .querySelectorAll(".tab-content > div");
             for (let i = 0; i < aElements.length; i++) {
                 aElements[i].classList.remove("text-white");
-                aElements[i].classList.remove("bg-blue-600");
-                aElements[i].classList.add("text-blue-600");
+                aElements[i].classList.remove("bg-indigo-600");
+                aElements[i].classList.add("text-indigo-600");
                 aElements[i].classList.add("bg-white");
                 tabContents[i].classList.add("hidden");
                 tabContents[i].classList.remove("block");
             }
-            element.classList.remove("text-blue-600");
+            element.classList.remove("text-indigo-600");
             element.classList.remove("bg-white");
             element.classList.add("text-white");
-            element.classList.add("bg-blue-600");
+            element.classList.add("bg-indigo-600");
             document.getElementById(tabID).classList.remove("hidden");
             document.getElementById(tabID).classList.add("block");
         }
