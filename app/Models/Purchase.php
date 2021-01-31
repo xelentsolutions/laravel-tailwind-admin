@@ -12,7 +12,7 @@ class Purchase extends Model
     protected $table = 'purchases';
 
     protected $fillable = [
-        'id', 'po_date', 'customer_id', 'pt_id', 'bill_no', 'remarks','bill_image'
+        'id', 'po_date', 'customer_id', 'pt_id', 'bill_no', 'remarks', 'po_image'
     ];
 
     protected $casts = [
