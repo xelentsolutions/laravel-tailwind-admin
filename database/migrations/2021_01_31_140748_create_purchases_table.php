@@ -20,7 +20,7 @@ class CreatePurchasesTable extends Migration
             $table->unsignedBigInteger('pt_id')->nullable()->default(null);
             $table->string('bill_no', 100)->nullable();
             $table->string('remarks', 200)->nullable();
-            $table->longText('bill_image')->nullable();
+            $table->longText('po_image')->nullable();
             $table->timestamps();
 
             $table->foreign('customer_id')->references('id')->on('customers');
