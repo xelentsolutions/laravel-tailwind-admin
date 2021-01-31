@@ -20,6 +20,10 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             RoleUserTableSeeder::class,
             SettingsTableSeeder::class,
+            CitiesTableSeeder::class,
+            TaxesTableSeeder::class,
+            PaymentTermsTableSeeder::class,
+            UomsTableSeeder::class,
         ]);
     }
 }
