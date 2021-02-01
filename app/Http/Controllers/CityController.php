@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Contracts\CityContract;
@@ -8,7 +8,7 @@ use App\Http\Controllers\BaseController;
 
 /**
  * Class CityController
- * @package App\Http\Controllers\Admin
+ * @package App\Http\Controllers
  */
 class CityController extends BaseController
 {

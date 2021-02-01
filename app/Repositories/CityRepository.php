@@ -32,7 +32,7 @@ class CityRepository extends BaseRepository implements CityContract
    * @param array $columns
    * @return mixed
    */
-  public function listCities(string $order = 'id', string $sort = 'desc', array $columns = ['*'])
+  public function listCities(string $order = 'id', string $sort = 'asc', array $columns = ['*'])
   {
     return $this->all($columns, $order, $sort);
   }

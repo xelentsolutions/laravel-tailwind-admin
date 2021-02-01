@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\CityController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,11 +29,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
 
     Route::group(['prefix'  =>   'cities'], function () {
-        Route::get('/', 'CityController@index')->name('cities.index');
-        Route::get('/create', 'CityController@create')->name('cities.create');
-        Route::post('/store', 'CityController@store')->name('cities.store');
-        Route::get('/{id}/edit', 'CityController@edit')->name('cities.edit');
-        Route::post('/update', 'CityController@update')->name('cities.update');
-        Route::get('/{id}/delete', 'CityController@delete')->name('cities.delete');
+        Route::get('/', [CityController::class, 'index'])->name('cities.index');
+        Route::get('/create', [CityController::class,'create'])->name('cities.create');
+        Route::post('/store', [CityController::class,'store'])->name('cities.store');
+        Route::get('/{id}/edit', [CityController::class,'edit'])->name('cities.edit');
+        Route::post('/update', [CityController::class,'update'])->name('cities.update');
+        Route::get('/{id}/delete', [CityController::class,'delete'])->name('cities.delete');
     });
 });

@@ -178,6 +178,7 @@ return [
         App\Providers\JetstreamServiceProvider::class,
         App\Providers\SettingServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        App\Providers\RepositoryServiceProvider::class,
 
     ],
 
