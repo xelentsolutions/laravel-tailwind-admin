@@ -6,6 +6,7 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\UomController;
 use App\Http\Controllers\PaymentTermController;
+use App\Http\Controllers\TaxController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -55,6 +56,15 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::get('/{id}/edit', [PaymentTermController::class,'edit'])->name('payment-terms.edit');
         Route::post('/update', [PaymentTermController::class,'update'])->name('payment-terms.update');
         Route::get('/{id}/delete', [PaymentTermController::class,'delete'])->name('payment-terms.delete');
+    });
+
+    Route::group(['prefix'  =>   'taxes'], function () {
+        Route::get('/', [TaxController::class, 'index'])->name('taxes.index');
+        Route::get('/create', [TaxController::class,'create'])->name('taxes.create');
+        Route::post('/store', [TaxController::class,'store'])->name('taxes.store');
+        Route::get('/{id}/edit', [TaxController::class,'edit'])->name('taxes.edit');
+        Route::post('/update', [TaxController::class,'update'])->name('taxes.update');
+        Route::get('/{id}/delete', [TaxController::class,'delete'])->name('taxes.delete');
     });
 
 });

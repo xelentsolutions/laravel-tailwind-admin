@@ -32,7 +32,7 @@
                                             <a href="#" class="block px-4 py-2 text-base capitalize text-gray-700 hover:bg-blue-500 hover:text-white">Customers</a>
                                             <a href="{{ route('uoms.index') }}" class="block px-4 py-2 text-base capitalize text-gray-700 hover:bg-blue-500 hover:text-white">UOM's</a>
                                             <a href="{{ route('payment-terms.index') }}" class="block px-4 py-2 text-base capitalize text-gray-700 hover:bg-blue-500 hover:text-white">Payment Terms</a>
-                                            <a href="#" class="block px-4 py-2 text-base capitalize text-gray-700 hover:bg-blue-500 hover:text-white">Tax</a>
+                                            <a href="{{ route('taxes.index') }}" class="block px-4 py-2 text-base capitalize text-gray-700 hover:bg-blue-500 hover:text-white">Tax</a>
                                             <a href="{{ route('cities.index') }}" class="block px-4 py-2 text-base capitalize text-gray-700 hover:bg-blue-500 hover:text-white">Cities</a>
                                         </div>
 

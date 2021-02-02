@@ -5,12 +5,14 @@ namespace App\Providers;
 use App\Contracts\CityContract;
 use App\Contracts\UomContract;
 use App\Contracts\PaymentTermContract;
+use App\Contracts\TaxContract;
 
 use Illuminate\Support\ServiceProvider;
 
 use App\Repositories\CityRepository;
 use App\Repositories\UomRepository;
 use App\Repositories\PaymentTermRepository;
+use App\Repositories\TaxRepository;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -19,6 +21,7 @@ class RepositoryServiceProvider extends ServiceProvider
         CityContract::class => CityRepository::class,
         UomContract::class  => UomRepository::class,
         PaymentTermContract::class  => PaymentTermRepository::class,
+        TaxContract::class  => TaxRepository::class,
     ];
 
     /**
