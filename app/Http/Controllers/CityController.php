@@ -76,10 +76,13 @@ class CityController extends BaseController
     public function edit($id)
     {
         $targetCity = $this->CityRepository->findCityById($id);
-        $cities = $this->CityRepository->treeList();
+        //$cities = $this->CityRepository->treeList();
 
         $this->setPageTitle('Cities', 'Edit City : ' . $targetCity->name);
-        return view('cities.edit', compact('cities', 'targetCity'));
+        return response()->json([
+            'status' => 'success',
+            'cities' => $targetCity
+        ]);
     }
 
     /**

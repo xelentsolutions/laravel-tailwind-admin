@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\UomController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,4 +37,14 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::post('/update', [CityController::class,'update'])->name('cities.update');
         Route::get('/{id}/delete', [CityController::class,'delete'])->name('cities.delete');
     });
+
+    Route::group(['prefix'  =>   'uoms'], function () {
+        Route::get('/', [UomController::class, 'index'])->name('uoms.index');
+        Route::get('/create', [UomController::class,'create'])->name('uoms.create');
+        Route::post('/store', [UomController::class,'store'])->name('uoms.store');
+        Route::get('/{id}/edit', [UomController::class,'edit'])->name('uoms.edit');
+        Route::post('/update', [UomController::class,'update'])->name('uoms.update');
+        Route::get('/{id}/delete', [UomController::class,'delete'])->name('uoms.delete');
+    });
+
 });

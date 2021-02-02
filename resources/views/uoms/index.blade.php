@@ -9,7 +9,7 @@
         @keydown.window.tab="usedKeyboard = true"
         @click="$dispatch('open-menu', { createsection: true })"
         :class="{'focus:outline-none': !usedKeyboard}" type="button" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-        Create new City
+        Create New UOM's
         </button>
     </div>
     </div>
@@ -29,9 +29,6 @@
                 Name
               </th>
               <th scope="col" class="px-6 py-3 text-left text-medium font-medium text-gray-500 uppercase tracking-wider">
-                Abrv.
-              </th>
-              <th scope="col" class="px-6 py-3 text-left text-medium font-medium text-gray-500 uppercase tracking-wider">
                 Status
               </th>
               <th scope="col" class="px-6 py-3 text-left text-medium font-medium text-gray-500 uppercase tracking-wider">
@@ -43,45 +40,42 @@
             </tr>
           </thead>
           <tbody class="bg-white divide-y divide-gray-200">
-          @foreach($cities as $city)
+          @foreach($uoms as $uom)
             <tr>
             <td class="px-6 py-4 whitespace-nowrap">
                 <div class="text-sm font-medium text-gray-900">
-                    {{$city->id}}
+                    {{$uom->id}}
                 </div>
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
                 <div class="text-sm font-medium text-gray-900">
-                    {{$city->name}}
+                    {{$uom->name}}
                 </div>
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
-                <div class="text-sm text-gray-900">{{$city->abrv}}</div>
-              </td>
-              <td class="px-6 py-4 whitespace-nowrap">
-                @if($city->status == 0)
+                @if($uom->status == 0)
                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
                     Disabled
                     </span>
-                    @elseif($city->status == 1)
+                    @elseif($uom->status == 1)
                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                     Active
                     </span>
                  @endif
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                {{$city->updated_at}}
+                {{$uom->updated_at}}
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                 <span class="relative z-0 inline-flex shadow-sm rounded-md">
                     <button x-data="{usedKeyboard: false}"
 			@keydown.window.tab="usedKeyboard = true"
-			@click="$dispatch('open-menu', { open: true,id: {{ $city->id }} })"
+			@click="$dispatch('open-menu', { open: true,id: {{ $uom->id }} })"
 			:class="{'focus:outline-none': !usedKeyboard}" type="button" class="relative inline-flex items-center px-4 py-2 rounded-l-md border border-green-700 bg-green-600 text-sm font-medium text-white hover:bg-green-500 focus:z-10 focus:outline-none focus:ring-1 focus:ring-green-500 focus:border-green-500">
                     <svg class="-ml-1 mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
                         Edit
                     </button>
-                    <form action="{{ route('cities.delete', $city->id) }}" method="DELETE" onsubmit="return confirm('Are you sure?')">
+                    <form action="{{ route('uoms.delete', $uom->id) }}" method="DELETE" onsubmit="return confirm('Are you sure want to delete UOM\'S?')">
                       @csrf @method('DELETE')
                     <button type="submit" class="-ml-px relative inline-flex items-center px-3 py-2 rounded-r-md border border-red-300 bg-red-500 text-sm font-medium text-white hover:bg-red-600 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500">
                     <svg class="-ml-1 mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
@@ -119,8 +113,8 @@
 		:class="{'translate-x-full': !open}">
 		<div class="p-16 px-6 absolute top-0 h-full overflow-y-scroll">
 		<div class="w-screen max-w-2xl">
-        <form class="h-full flex flex-col bg-white shadow-xl overflow-y-scroll" action="{{ route('cities.update') }}" method="post">
-          <input type="hidden" value="" name="id" id="city_id"/>
+        <form class="h-full flex flex-col bg-white shadow-xl overflow-y-scroll" action="{{ route('uoms.update') }}" method="post">
+          <input type="hidden" value="" name="id" id="uom_id"/>
           @csrf
           <div class="flex-1">
             <!-- Header -->
@@ -128,7 +122,7 @@
               <div class="flex items-start justify-between space-x-3">
                 <div class="space-y-1">
                   <h2 id="slide-over-heading" class="text-lg font-medium text-gray-900">
-                    City Update
+                    Update UOM's
                   </h2>
                   <p class="text-sm text-gray-500">
                     
@@ -150,38 +144,26 @@
 
             <!-- Divider container -->
             <div class="py-6 space-y-6 sm:py-0 sm:space-y-0 sm:divide-y sm:divide-gray-200">
-              <!-- City name -->
+              <!-- UOM name -->
               <div class="space-y-1 px-4 sm:space-y-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 sm:py-5">
                 <div>
-                  <label for="city_name_label" class="block text-sm font-medium text-gray-900 sm:mt-px sm:pt-2">
+                  <label for="uom_name_label" class="block text-sm font-medium text-gray-900 sm:mt-px sm:pt-2">
                     Name
                   </label>
                 </div>
                 <div class="sm:col-span-2">
-                  <input type="text" name="name" id="city_name" class="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
+                  <input type="text" name="name" id="uom_name" class="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
                 </div>
               </div>
-
-              <!-- City Abrvation -->
+              <!-- UOM Status -->
               <div class="space-y-1 px-4 sm:space-y-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 sm:py-5">
                 <div>
-                  <label for="city_name_label" class="block text-sm font-medium text-gray-900 sm:mt-px sm:pt-2">
-                    Abrv
-                  </label>
-                </div>
-                <div class="sm:col-span-2">
-                  <input type="text" name="abrv" id="city_abrv" class="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
-                </div>
-              </div>
-              <!-- City Status -->
-              <div class="space-y-1 px-4 sm:space-y-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 sm:py-5">
-                <div>
-                  <label for="city_name_label" class="block text-sm font-medium text-gray-900 sm:mt-px sm:pt-2">
+                  <label for="uom_status_label" class="block text-sm font-medium text-gray-900 sm:mt-px sm:pt-2">
                     Status
                   </label>
                 </div>
                 <div class="sm:col-span-2">
-                  <input type="checkbox" name="status" id="city_status" class="form-checkbox h-5 w-5 text-blue-600"><span class="ml-2 text-gray-700">
+                  <input type="checkbox" name="status" id="uom_status" class="form-checkbox h-5 w-5 text-blue-600"><span class="ml-2 text-gray-700">
                 </div>
               </div>
             </label>
@@ -223,7 +205,7 @@
 		:class="{'translate-x-full': !createsection}">
 		<div class="p-16 px-6 absolute top-0 h-full overflow-y-scroll">
 		<div class="w-screen max-w-2xl">
-        <form class="h-full flex flex-col bg-white shadow-xl overflow-y-scroll" action="{{ route('cities.store') }}" method="post">
+        <form class="h-full flex flex-col bg-white shadow-xl overflow-y-scroll" action="{{ route('uoms.store') }}" method="post">
           @csrf
           <div class="flex-1">
             <!-- Header -->
@@ -231,7 +213,7 @@
               <div class="flex items-start justify-between space-x-3">
                 <div class="space-y-1">
                   <h2 id="slide-over-heading" class="text-lg font-medium text-gray-900">
-                    Add New City
+                    Add New UOM's
                   </h2>
                   <p class="text-sm text-gray-500">
                     
@@ -253,38 +235,27 @@
 
             <!-- Divider container -->
             <div class="py-6 space-y-6 sm:py-0 sm:space-y-0 sm:divide-y sm:divide-gray-200">
-              <!-- City name -->
+              <!-- UOM name -->
               <div class="space-y-1 px-4 sm:space-y-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 sm:py-5">
                 <div>
-                  <label for="city_name_label" class="block text-sm font-medium text-gray-900 sm:mt-px sm:pt-2">
+                  <label for="uom_name_label" class="block text-sm font-medium text-gray-900 sm:mt-px sm:pt-2">
                     Name
                   </label>
                 </div>
                 <div class="sm:col-span-2">
-                  <input type="text" name="name" id="city_name" class="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
+                  <input type="text" name="name" id="uom_name" class="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
                 </div>
               </div>
 
-              <!-- City Abrvation -->
+              <!-- UOM Status -->
               <div class="space-y-1 px-4 sm:space-y-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 sm:py-5">
                 <div>
-                  <label for="city_name_label" class="block text-sm font-medium text-gray-900 sm:mt-px sm:pt-2">
-                    Abrv
-                  </label>
-                </div>
-                <div class="sm:col-span-2">
-                  <input type="text" name="abrv" id="city_abrv" class="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
-                </div>
-              </div>
-              <!-- City Status -->
-              <div class="space-y-1 px-4 sm:space-y-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 sm:py-5">
-                <div>
-                  <label for="city_name_label" class="block text-sm font-medium text-gray-900 sm:mt-px sm:pt-2">
+                  <label for="uom_status_label" class="block text-sm font-medium text-gray-900 sm:mt-px sm:pt-2">
                     Status
                   </label>
                 </div>
                 <div class="sm:col-span-2">
-                  <input type="checkbox" name="status" id="city_status" class="form-checkbox h-5 w-5 text-blue-600"><span class="ml-2 text-gray-700">
+                  <input type="checkbox" name="status" id="uom_status" class="form-checkbox h-5 w-5 text-blue-600"><span class="ml-2 text-gray-700">
                 </div>
               </div>
             </label>
@@ -325,7 +296,7 @@ function slideout() {
         }else{
             this.$watch('id', value => {
             debugger;
-            getCityDetail(this.id)
+            getUomDetail(this.id)
             this.toggleOverlay()
           })
         }	
@@ -337,8 +308,8 @@ function slideout() {
 		}
 	}
 }
-function getCityDetail(id){
-  var url = '{{ route("cities.edit", ":id") }}';
+function getUomDetail(id){
+  var url = '{{ route("uoms.edit", ":id") }}';
   url = url.replace(':id', id );
   $.ajax({
       method: "GET",
@@ -347,11 +318,10 @@ function getCityDetail(id){
       dataType: 'json',
       success: function(response){
       if(response.status == 'success'){
-        $("#city_name").val(response.cities.name);
-        $("#city_abrv").val(response.cities.abrv);
-        $("#city_id").val(response.cities.id);
-        if(response.cities.status == 1)
-        $("#city_status").prop('checked',true);
+        $("#uom_name").val(response.uoms.name);
+        $("#uom_id").val(response.uoms.id);
+        if(response.uoms.status == 1)
+        $("#uom_status").prop('checked',true);
       }
     }
  });
