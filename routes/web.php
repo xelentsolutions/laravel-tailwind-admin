@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\UomController;
+use App\Http\Controllers\PaymentTermController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,6 +46,15 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::get('/{id}/edit', [UomController::class,'edit'])->name('uoms.edit');
         Route::post('/update', [UomController::class,'update'])->name('uoms.update');
         Route::get('/{id}/delete', [UomController::class,'delete'])->name('uoms.delete');
+    });
+
+    Route::group(['prefix'  =>   'payment-terms'], function () {
+        Route::get('/', [PaymentTermController::class, 'index'])->name('payment-terms.index');
+        Route::get('/create', [PaymentTermController::class,'create'])->name('payment-terms.create');
+        Route::post('/store', [PaymentTermController::class,'store'])->name('payment-terms.store');
+        Route::get('/{id}/edit', [PaymentTermController::class,'edit'])->name('payment-terms.edit');
+        Route::post('/update', [PaymentTermController::class,'update'])->name('payment-terms.update');
+        Route::get('/{id}/delete', [PaymentTermController::class,'delete'])->name('payment-terms.delete');
     });
 
 });
