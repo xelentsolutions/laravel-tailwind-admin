@@ -17,4 +17,16 @@ class Customer extends Model
         'city_id'      =>  'integer',
         'status'      =>  'boolean'
     ];
+
+    public function customerContact()
+    {
+        return $this->hasMany(CustomerContact::class);
+    }
+
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
 }
+
+

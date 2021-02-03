@@ -7,6 +7,8 @@ use App\Http\Controllers\CityController;
 use App\Http\Controllers\UomController;
 use App\Http\Controllers\PaymentTermController;
 use App\Http\Controllers\TaxController;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\CustomerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,7 +27,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         return view('dashboard');
     })->name('dashboard');
 
-    Route::resource('users', \App\Http\Controllers\UsersController::class);
+    Route::resource('users', UsersController::class);
 
     Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
     Route::post('/settings', [SettingController::class, 'update'])->name('settings.update');
@@ -66,5 +68,17 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::post('/update', [TaxController::class,'update'])->name('taxes.update');
         Route::get('/{id}/delete', [TaxController::class,'delete'])->name('taxes.delete');
     });
+
+    Route::group(['prefix'  =>   'customers'], function () {
+        Route::get('/', [CustomerController::class, 'index'])->name('customers.index');
+        Route::get('/create', [CustomerController::class,'create'])->name('customers.create');
+        Route::post('/store', [CustomerController::class,'store'])->name('customers.store');
+        Route::get('/{id}/edit', [CustomerController::class,'edit'])->name('customers.edit');
+        Route::get('/{id}/show', [CustomerController::class,'show'])->name('customers.show');
+        Route::post('/update', [CustomerController::class,'update'])->name('customers.update');
+        Route::get('/{id}/destroy', [CustomerController::class,'destroy'])->name('customers.destroy');
+        Route::post('/customer-detail-destroy', [CustomerController::class,'customer_contact_destroy'])->name('customers.customer_contact_destroy');
+    });
+
 
 });

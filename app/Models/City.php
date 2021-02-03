@@ -16,4 +16,9 @@ class City extends Model
     protected $casts = [
         'status'      =>  'boolean'
     ];
+
+    public function customer()
+    {
+        return $this->hasOne(Customer::class);
+    }
 }

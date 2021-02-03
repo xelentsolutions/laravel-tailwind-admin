@@ -6,6 +6,7 @@ use App\Contracts\CityContract;
 use App\Contracts\UomContract;
 use App\Contracts\PaymentTermContract;
 use App\Contracts\TaxContract;
+use App\Contracts\CustomerContract;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -13,6 +14,7 @@ use App\Repositories\CityRepository;
 use App\Repositories\UomRepository;
 use App\Repositories\PaymentTermRepository;
 use App\Repositories\TaxRepository;
+use App\Repositories\CustomerRepository;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -22,6 +24,7 @@ class RepositoryServiceProvider extends ServiceProvider
         UomContract::class  => UomRepository::class,
         PaymentTermContract::class  => PaymentTermRepository::class,
         TaxContract::class  => TaxRepository::class,
+        CustomerContract::class  => CustomerRepository::class,
     ];
 
     /**

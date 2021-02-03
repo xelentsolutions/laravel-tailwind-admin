@@ -16,4 +16,9 @@ class CustomerContact extends Model
     protected $casts = [
         'customer_id'      =>  'integer'
     ];
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
+    }
 }

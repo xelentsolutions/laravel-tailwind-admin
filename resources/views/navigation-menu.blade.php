@@ -29,7 +29,7 @@
                                     </span>
                                     <div :class="{'block': open, 'hidden': ! open}" class="rounded-md shadow-lg">
                                         <div class="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20">
-                                            <a href="#" class="block px-4 py-2 text-base capitalize text-gray-700 hover:bg-blue-500 hover:text-white">Customers</a>
+                                            <a href="{{ route('customers.index') }}" class="block px-4 py-2 text-base capitalize text-gray-700 hover:bg-blue-500 hover:text-white">Customers</a>
                                             <a href="{{ route('uoms.index') }}" class="block px-4 py-2 text-base capitalize text-gray-700 hover:bg-blue-500 hover:text-white">UOM's</a>
                                             <a href="{{ route('payment-terms.index') }}" class="block px-4 py-2 text-base capitalize text-gray-700 hover:bg-blue-500 hover:text-white">Payment Terms</a>
                                             <a href="{{ route('taxes.index') }}" class="block px-4 py-2 text-base capitalize text-gray-700 hover:bg-blue-500 hover:text-white">Tax</a>
