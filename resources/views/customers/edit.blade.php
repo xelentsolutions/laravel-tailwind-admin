@@ -48,7 +48,7 @@
                   <label for="street_address" class="block text-sm font-medium text-gray-700">Address</label>
                   <input type="text" name="address" id="address" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" required value ="{{ isset($customer) ? $customer->address : ''  }}"> 
                 </div>
-                <div class="contact-information">
+                <div class="contact-information col-span-6">
                 @if(isset($customer->customerContact))
                 @foreach ($customer->customerContact as $key => $customercontact)
                 @include('customers.inc.customer-contact')    

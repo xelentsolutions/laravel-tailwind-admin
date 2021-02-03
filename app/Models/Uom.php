@@ -16,4 +16,9 @@ class uom extends Model
     protected $casts = [
         'status'      =>  'boolean'
     ];
+
+    public function product()
+    {
+        return $this->hasOne(Product::class);
+    }
 }

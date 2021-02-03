@@ -38,7 +38,7 @@
 
                                     </div>
                                 </span>
-                                <a href="#" class="text-white hover:bg-opacity-25 hover:bg-white px-2 py-2 rounded-md font-bold">Products</a>
+                                <a href="{{ route('products.index') }}" class="text-white hover:bg-opacity-25 hover:bg-white px-2 py-2 rounded-md font-bold">Products</a>
                                 <a href="#" class="text-white hover:bg-opacity-25 hover:bg-white px-2 py-2 rounded-md font-bold">Estimates</a>
                                 <a href="#" class="text-white hover:bg-opacity-25 hover:bg-white px-2 py-2 rounded-md font-bold">Purchase Order</a>
                                 <a href="#" class="text-white hover:bg-opacity-25 hover:bg-white px-2 py-2 rounded-md font-bold">Delivery Challan</a>

@@ -9,6 +9,7 @@ use App\Http\Controllers\PaymentTermController;
 use App\Http\Controllers\TaxController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -80,5 +81,13 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::post('/customer-detail-destroy', [CustomerController::class,'customer_contact_destroy'])->name('customers.customer_contact_destroy');
     });
 
-
+    Route::group(['prefix'  =>   'products'], function () {
+        Route::get('/', [ProductController::class, 'index'])->name('products.index');
+        Route::get('/create', [ProductController::class,'create'])->name('products.create');
+        Route::post('/store', [ProductController::class,'store'])->name('products.store');
+        Route::get('/{id}/edit', [ProductController::class,'edit'])->name('products.edit');
+        Route::get('/{id}/show', [ProductController::class,'show'])->name('products.show');
+        Route::post('/update', [ProductController::class,'update'])->name('products.update');
+        Route::get('/{id}/destroy', [ProductController::class,'destroy'])->name('products.destroy');
+    });
 });

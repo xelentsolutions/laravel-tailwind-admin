@@ -18,4 +18,9 @@ class Product extends Model
         'min_stock'   =>  'integer',
         'status'      =>  'boolean',
     ];
+
+    public function uom()
+    {
+        return $this->belongsTo(Uom::class);
+    }
 }
