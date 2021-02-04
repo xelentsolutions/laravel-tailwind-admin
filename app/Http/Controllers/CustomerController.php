@@ -52,7 +52,7 @@ class CustomerController extends BaseController
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name'      =>  'required|max:191',
+            'email'      =>  'required|email',
         ]);
 
          $params = $request->except('_token');
